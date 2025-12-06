@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package member;
+
+service MemberService {
+  rpc CreateMember (Member) returns (Member);
+  rpc GetMember (MemberRequest) returns (Member);
+  rpc UpdateMember (Member) returns (Member);
+  rpc DeleteMember (MemberRequest) returns (DeleteResponse);
+}
+
+message Member {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message MemberRequest {
+  string id = 1;
+}
+
+message DeleteResponse {
+  bool success = 1;
+}
